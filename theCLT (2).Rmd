@@ -21,6 +21,8 @@ densityplot(my1000,main="original data")
 
 Describe the resulting plot -  is it unimodal?  How many peaks does it have?  Are all the peaks the same size? 
 
+No it is not unimodal. It has two peaks that both appear to be the same size.
+
 Now take 2 random samples of 1000 points of the kkardashtemp variable and form 1000 points of their averages,
 
 ```{r}
@@ -33,17 +35,57 @@ densityplot(x.avg,main="sample size 2")
 
 Describe the resulting plot -  is it unimodal?  How many peaks does it have?  Are all the peaks the same size? 
 
- 
+ No, it is not unimodal. It has three peaks. Two smaller peaks at the beginning and end and one large one in the middle.
 
 Do this again for 4 random samples
 
+```{r}
+numb = 4
+Kdata   <- sample(KK_data, size = numb*1000, replace=T)
+mdata  <-matrix(Kdata,nrow=1000,ncol=numb)
+x.avg <- apply(mdata,1,mean)
+densityplot(x.avg,main="sample size 4")
+```
+
+This chart has three peaks that have started to get both taller and closer to one another.
+
 Then again for 9 random samples
+
+```{r}
+numb = 9
+Kdata   <- sample(KK_data, size = numb*1000, replace=T)
+mdata  <-matrix(Kdata,nrow=1000,ncol=numb)
+x.avg <- apply(mdata,1,mean)
+densityplot(x.avg,main="sample size 9")
+```
+
+This graph has gotten more connected as the growth of the samples has gotten larger 
 
 then 16 random samples
 
+```{r}
+numb = 16
+Kdata   <- sample(KK_data, size = numb*1000, replace=T)
+mdata  <-matrix(Kdata,nrow=1000,ncol=numb)
+x.avg <- apply(mdata,1,mean)
+densityplot(x.avg,main="sample size 16")
+```
+
+It's taken on a single peak.
+
 finally for 36 random samples.
 
+```{r}
+numb = 36
+Kdata   <- sample(KK_data, size = numb*1000, replace=T)
+mdata  <-matrix(Kdata,nrow=1000,ncol=numb)
+x.avg <- apply(mdata,1,mean)
+densityplot(x.avg,main="sample size 36")
+```
+
 Write a summary paragraph describing what you observed and how it relates to the central limit theorem.
+
+I noticed that as more and more samples started getting collected, the less peaks the graph started to have, becoming more unified. This makes sense as the more you start to examine something the more information that becomes available to you.
 
 Be sure to comment on both the mean and standard deviation of the sample averages - the CLT makes a statement about what to expect from both.
 
